@@ -2,65 +2,21 @@
 <html>
   <head>
     <title>Colour Generator</title>
-    <style>
-        .container {
-            display: grid; 
-            grid-template-columns: 1fr 1fr 1fr 1fr; 
-            grid-template-rows: 1fr; 
-            gap: 0px 0px; 
-            grid-template-areas: 
-            ". . . ."; 
-            text-align: center;
-            color: white;
-            font-size: 2em;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        html, body , .container { 
-            height: 100%;
-            margin: 0;
-        }
-    </style>
+    <script src="fn.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="container">
-        <div id="1"></div>
-        <div id="2"></div>
-        <div id="3"></div>
-        <div id="4"></div>
-    </div>
-    <script>
-        function randomInteger(max) {
-            return Math.floor(Math.random()*(max + 1));
-        } 
-
-        function randomRgb(){
-            let r = randomInteger(255);
-            let g = randomInteger(255);
-            let b = randomInteger(255);
-            return [r, g, b];
-        }
-
-        function randomHex(){
-            let [r, g, b] = randomRgb();
-            let hr = r.toString(16).padStart(2, '0');
-            let hg = g.toString(16).padStart(2, '0');
-            let hb = b.toString(16).padStart(2, '0');
-            return "#" + hr + hg + hb;
-        }
-
-        function colour(){
-            //set each grid column a random colour + set text to hex 
-            for(let i = 0; i < 4; i ++){
-                let hex = randomHex();
-                document.getElementById(i + 1).style.backgroundColor = hex;
-                document.getElementById(i + 1).innerHTML = hex;
-            }
-        }
-
-        addEventListener('click', (event)=>{//mouse click event
-            colour();
-        });
-        colour();
-    </script>
+        <div id="head">
+          <h>Colour Scheme Generator</h>
+          <button id="btn" onclick="colour()">refresh</button>
+        </div>
+        <div class="mainArea">
+         <div id="1">1</div>
+        <div id="2">2</div>
+        <div id="3">3</div>
+        <div id="4">4</div>
+        </div>
+      </div>
   </body>
 </html>
